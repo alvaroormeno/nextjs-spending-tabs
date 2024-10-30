@@ -1,0 +1,85 @@
+.navbar_main_wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    /* position: relative; */
+    background-color: var(--primary-color);
+    height: 80px;
+}
+
+.navbar_main_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.navbar_logo_text {
+    margin: 0;
+    font-size: 35px;
+    color: white;
+    font-weight: 800;
+}
+
+
+.navbar_links_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.signup_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px;
+    gap: 4px;
+
+    width: 141px;
+    height: 40px;
+
+    background: var(--light-green);
+
+    border-radius: 16px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+.login_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px;
+    gap: 4px;
+
+    width: 141px;
+    height: 40px;
+
+    background: transparent;
+
+    border-radius: 16px;
+    border: solid;
+    border-width: 2px;
+    border-color: white;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: white;
+    cursor: pointer;
+}
