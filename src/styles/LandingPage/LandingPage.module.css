@@ -219,3 +219,132 @@
 
     color: var(--primary-color);
 }
+
+
+
+
+
+/* ///// PRICING SECTION CSS ///// */
+/* ///// PRICING SECTION CSS ///// */
+/* ///// PRICING SECTION CSS ///// */
+.pricing_section_main_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: var(--light-green);
+    padding: 45px 80px;
+    height: 600px;
+}
+
+.pricing_title {
+    margin: 0;
+    font-size: 65px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+
+.priceCards_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 80px;
+}
+
+
+
+.price_card_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    gap: 10PX;
+
+    width: 350px;
+    height: auto;
+
+    border-radius: 15px;
+
+
+    background-color: var(--secondary-color);
+}
+
+.price_card_title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.price_card_tagline {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.price_card_price {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+}
+.price_card_price > span {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.features_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.single_feature_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.price_card_feature {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+}
+
+.pricing_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px;
+    gap: 4px;
+
+    width: 180px;
+    height: 40px;
+
+    background: white;
+
+    border-radius: 16px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
