@@ -1,7 +1,7 @@
 import React from 'react'
 
 // COMPONENTS
-// import Navbar from '@/src/components/Shared/Navbar'
+import MainSection from '@/src/components/LandingPage/MainSection'
 // CSS STYLES
 import styles from '@/src/styles/LandingPage/LandingPage.module.css'
 
@@ -10,7 +10,7 @@ const LandingPage = () => {
         <div className={styles.page_main_wrapper}>
 
             <div className={styles.page_main_container}>
-                {/* <Navbar /> */}
+                <MainSection />
             </div>
 
         </div>
