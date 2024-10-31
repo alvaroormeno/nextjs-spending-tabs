@@ -82,3 +82,42 @@
     color: var(--primary-color);
     cursor: pointer;
 }
+
+
+
+
+/* ///// CARDS SECTION CSS ///// */
+/* ///// CARDS SECTION CSS ///// */
+/* ///// CARDS SECTION CSS ///// */
+.cards_section_main_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--light-green);
+    padding: 0 80px;
+    height: 600px;
+}
+
+.single_card_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: flex-start; */
+    padding: 20px;
+
+    width: 350px;
+    height: 390px;
+
+    border-radius: 15px;
+
+
+    background-color: var(--primary-color);
+}
+
+.single_card_text {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 600;
+}
