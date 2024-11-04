@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import { ClerkProvider} from '@clerk/nextjs'
 
 // COMPONENTS
 import HeaderWrapper from "@/src/components/MainLayout/HeaderWrapper";
@@ -32,11 +32,13 @@ export default function RootLayout({
 
     
     return (
-        <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                <HeaderWrapper />
-                {children}
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang="en">
+                <body className={`${geistSans.variable} ${geistMono.variable}`}>
+                    <HeaderWrapper />
+                    {children}
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
