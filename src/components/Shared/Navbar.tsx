@@ -18,7 +18,6 @@ const Navbar = () => {
 
     const pathname = usePathname()
 
-    console.log('pathname:', pathname)
     return pathname && !pathname.includes('/dashboard') ? (
         <div className={styles.navbar_main_wrapper}>
             <div className={styles.navbar_main_container}>

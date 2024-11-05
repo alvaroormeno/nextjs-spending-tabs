@@ -2,21 +2,21 @@
 import { createRouter } from "next-connect";
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import {createNewProject} from '@/src/lib/projects/index'
+import {getProjectData} from '@/src/lib/projects/index'
 
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
-router.post(async (req: NextApiRequest, res: NextApiResponse) => {
+router.get(async (req: NextApiRequest, res: NextApiResponse) => {
         
 
         try {
 
-            const projectData = req.body
+            const project_id = req.query.project_id as string
 
-            const newProject = await createNewProject(projectData)
+            const projectData = await getProjectData(project_id)
 
-            res.json(newProject)
+            res.json(projectData)
         } catch (error) {
             console.log(error)
             res.status(400).send(error)

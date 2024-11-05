@@ -26,32 +26,18 @@ const DashboardSidebar = () => {
 
     const handleCreateProject = async () => {
         setDashboardDisplay('new-project')
+    }
 
-
-        // await fetch(`api/projects/create`, {
-        //     method: 'GET',
-        // })
-        // .then(response => response.json())
-        // .then((data) => {
-        //     console.log(data)
-        // })
+    const handleSelectProject = (project: any) => {
+        console.log('project', project)
+        setDashboardDisplay(`project-view-${project.id}`)
+    
     }
 
     return (
         <div className={styles.sidebar_main_container}>
 
-            <p>Spending Tabs</p>
-            <p>Projects</p>
-
-            {
-                userProjects.map((project, index) => {
-                    return (
-                        <div key={index}>
-                            <p>{project.title}</p>
-                        </div>
-                    )
-                })
-            }
+            <p className={styles.sidebar_logo}>SpendingTabs</p>
 
             <div 
                 onClick={() => {handleCreateProject()}}
@@ -59,6 +45,25 @@ const DashboardSidebar = () => {
             >
                 New Project +
             </div>
+
+            <div className={styles.sidebar_projects_container}>
+            {
+                userProjects.map((project, index) => {
+                    return (
+                        <div 
+                            key={index} 
+                            className={styles.single_project_container}
+                            onClick={() => {handleSelectProject(project)}}
+                        >
+                            <p>{project.title}</p>
+                        </div>
+                    )
+                })
+            }
+            </div>
+            
+
+            
         </div>
     )
 }

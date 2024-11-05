@@ -50,3 +50,23 @@ export const getAllProjects = async (user_id: string) => {
         return error
     }
 }
+
+
+export const getProjectData = async (project_id: string) => {
+    try {
+        console.log('getProjectData project_id', project_id)
+
+        const response = await prisma.projects.findFirst({
+            where: {
+                id: project_id,
+            }
+        });
+        console.log('response', response)
+
+
+        return response
+    } catch (error) {
+        console.log("getAllProjects FUNCTION ERROR IN lib/projects", error)
+        return error
+    }
+}

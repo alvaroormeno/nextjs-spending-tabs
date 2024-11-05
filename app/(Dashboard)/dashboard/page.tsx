@@ -8,6 +8,7 @@ import { useDashboardContext } from '@/src/contexts/dashboardContext'
 import styles from '@/src/styles/DashboardPage/DashboardPage.module.css'
 // COMPONENTS
 import NewProjectDisplay from '@/src/components/DashboardPage/NewProjectDisplay'
+import ProjectView from '@/src/components/DashboardPage/ProjectView'
 
 
 const DashboardPage = () => {
@@ -36,6 +37,8 @@ const DashboardPage = () => {
             {
                 dashboardDisplay === 'new-project' ? (
                     <NewProjectDisplay />
+                ) : dashboardDisplay.includes('project-view') ? (
+                    <ProjectView />
                 ) : (null)
             }
 
