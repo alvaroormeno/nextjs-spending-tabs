@@ -20,4 +20,3 @@ export const createNewProject = async () => {
     }
 }
 
-export default createNewProject

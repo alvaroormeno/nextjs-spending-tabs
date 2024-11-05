@@ -11,7 +11,7 @@ const NewProjectDisplay = () => {
     })
 
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 
         console.log('handleChange', name, value)
@@ -20,6 +20,10 @@ const NewProjectDisplay = () => {
             ...newProject,
             [name]: value
         })
+    }
+
+    const handleSubmit = () => {
+
     }
 
 
@@ -51,7 +55,10 @@ const NewProjectDisplay = () => {
                 />
             </div>
             
-            <button className={styles.submit_btn}>
+            <button 
+                className={styles.submit_btn}
+                onClick={() => handleSubmit()}
+            >
                 Submit
             </button>
 

@@ -22,8 +22,10 @@ type Address {
 
 model user {
   id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId String
   email   String   @unique
-  name    String?
+  firstName    String?
+  lastName    String?
   projects projects[]
 }
 
