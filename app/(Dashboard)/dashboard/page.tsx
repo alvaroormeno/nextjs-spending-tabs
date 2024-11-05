@@ -37,8 +37,10 @@ const DashboardPage = () => {
             {
                 dashboardDisplay === 'new-project' ? (
                     <NewProjectDisplay />
-                ) : dashboardDisplay.includes('project-view') ? (
+                ) : dashboardDisplay === 'project-view' ? (
                     <ProjectView />
+                ) : dashboardDisplay === 'create-project-tab' ? (
+                    <div></div>
                 ) : (null)
             }
 

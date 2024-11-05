@@ -18,6 +18,8 @@ const NewProjectDisplay = () => {
     const {
         signedInUser,
         setDashboardDisplay,
+        // FUNCTIONS
+        getAllProjects
     } = useDashboardContext()
 
 
@@ -55,12 +57,17 @@ const NewProjectDisplay = () => {
         .then((data) => {
             console.log('newwwwwwwwwwww',data)
             if (data.title) {
+                // Toast Alert Success
                 toast.success('Project Created')
+                // Reset New Project Data
                 setNewProject({
                     title: '',
                     description: '',
                 })
+                // Change Dashboard Display 
                 setDashboardDisplay('all-projects')
+                // Fetch All Projects to render new one
+                getAllProjects(signedInUser.id)
             }
         })
 

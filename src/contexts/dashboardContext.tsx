@@ -4,12 +4,17 @@ import React, { useEffect, useState } from 'react';
 
 
 type ContextValues = {
+    // STATES
     dashboardDisplay:string;
     setDashboardDisplay: React.Dispatch<React.SetStateAction<string>>;
     signedInUser:dbUserData;
     setSignedInUser: React.Dispatch<React.SetStateAction<dbUserData>>;
     userProjects:any[];
     setUserProjects: React.Dispatch<React.SetStateAction<any[]>>;
+    selectedProject:any;
+    setSelectedProject: React.Dispatch<React.SetStateAction<any>>;
+    // FUNCTIONS
+    getAllProjects: Function;
 } | undefined
 
 
@@ -28,6 +33,7 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         email: '',
     })
     const [userProjects, setUserProjects] = useState<any[]>([])
+    const [selectedProject, setSelectedProject] = useState<any>(null)
 
 
     useEffect(() => {
@@ -74,12 +80,17 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
 
 
     const values: ContextValues | undefined = {
+        // STATES
         dashboardDisplay,
         setDashboardDisplay,
         signedInUser,
         setSignedInUser,
         userProjects,
         setUserProjects,
+        selectedProject,
+        setSelectedProject,
+        // FUNCTIONS
+        getAllProjects,
     }
 
     return (

@@ -17,6 +17,10 @@ const DashboardSidebar = () => {
         dashboardDisplay,
         setDashboardDisplay,
         userProjects,
+        selectedProject,
+        setSelectedProject,
+        // FUNCTIONS
+        getAllProjects
     } = useDashboardContext()
 
 
@@ -30,7 +34,8 @@ const DashboardSidebar = () => {
 
     const handleSelectProject = (project: any) => {
         console.log('project', project)
-        setDashboardDisplay(`project-view-${project.id}`)
+        setDashboardDisplay(`project-view`)
+        setSelectedProject(project)
     
     }
 

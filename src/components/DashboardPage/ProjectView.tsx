@@ -13,6 +13,8 @@ const ProjectView = () => {
         dashboardDisplay,
         setDashboardDisplay,
         userProjects,
+        selectedProject,
+        setSelectedProject,
     } = useDashboardContext()
 
 
@@ -20,7 +22,7 @@ const ProjectView = () => {
     useEffect(() => {
 
         if (dashboardDisplay.includes('project-view')) {
-            const project_id = dashboardDisplay.split('-')[2]
+            const project_id = selectedProject.id
             // FETCH PROJECT DATA
             getProjectData(project_id)
         }
@@ -43,7 +45,8 @@ const ProjectView = () => {
 
 
     const handleCreateTab = async () => {
-
+        const project_id = selectedProject.id
+        setDashboardDisplay('create-project-tab')
     }
 
 
