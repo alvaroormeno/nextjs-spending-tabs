@@ -1,4 +1,6 @@
 import React from 'react'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // CONTEXTS
 import { DashboardProvider } from '@/src/contexts/dashboardContext'
@@ -15,7 +17,8 @@ export default function DashboardLayout({
 }) {
     return (
         <DashboardProvider>
-            <div className={styles.dashboardLayout_main_wrapper} >
+            <div className={styles.dashboardLayout_main_wrapper}>
+                <ToastContainer />
                 <div className={styles.dashboardLayout_main_container} >
                     {/* SIDE BAR */}
                     <div >

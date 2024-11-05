@@ -21,9 +21,9 @@ type Address {
 }
 
 model user {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  clerkId String
-  email   String   @unique
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId String    @unique
+  email   String    @unique
   firstName    String?
   lastName    String?
   projects projects[]
@@ -33,6 +33,17 @@ model user {
 model projects {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   title    String
-  userId   String?    @db.ObjectId
-  user   user?      @relation(fields: [userId], references: [id])
+  description    String
+  user_id   String?    @db.ObjectId
+  user   user?      @relation(fields: [user_id], references: [id])
+  tabs  tabs[]
+}
+
+
+model tabs {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  project_id String?    @db.ObjectId
+  user_id   String?    @db.ObjectId
+  title    String
+  project   projects?      @relation(fields: [project_id], references: [id])
 }

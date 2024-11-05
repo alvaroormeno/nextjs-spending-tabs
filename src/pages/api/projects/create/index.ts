@@ -7,14 +7,18 @@ import {createNewProject} from '@/src/lib/projects/index'
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
-router.get(async (req: NextApiRequest, res: NextApiResponse) => {
+router.post(async (req: NextApiRequest, res: NextApiResponse) => {
         
 
         try {
 
-            const users = await createNewProject()
+            const projectData = req.body
 
-            res.json(users)
+            console.log('AAAAAAAAA', projectData)
+
+            const newProject = await createNewProject(projectData)
+
+            res.json(newProject)
         } catch (error) {
             console.log(error)
             res.status(400).send(error)

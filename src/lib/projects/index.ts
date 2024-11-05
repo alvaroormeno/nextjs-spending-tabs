@@ -1,22 +1,32 @@
 import prisma from '@/src/utils/Prisma/prisma';
 
+type ProjectDataType = {
+    title: string,
+    description: string,
+    user_id: string,
+    tabs: any
+}
 
-export const createNewProject = async () => {
+export const createNewProject = async (projectData: ProjectDataType) => {
+
+    
     try {
+        console.log('createNewProject projectData', projectData)
 
-
-        const data = await prisma.projects.create({
+        const newProject = await prisma.projects.create({
             data: {
-                title: 'any title'
+                title: projectData.title,
+                description: projectData.description,
+                user_id: projectData.user_id,
             }
         });
-        console.log(data)
+        console.log('newProject', newProject)
 
 
-        return data
-    } catch (err) {
-        // console.log("getCompletedCourses FUNCTION ERROR IN lib/courses", err.message)
-        return err
+        return newProject
+    } catch (error) {
+        console.log("createNewProject FUNCTION ERROR IN lib/projects", error)
+        return error
     }
 }
 

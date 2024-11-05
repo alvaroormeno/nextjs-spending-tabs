@@ -8,7 +8,8 @@ declare global {
     type dbUserData = {
         id: string;
         clerkId: number;
-        name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         projects?: [];
     }

@@ -1,5 +1,9 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 
+
+// CONTEXTS
+import { useDashboardContext } from '@/src/contexts/dashboardContext'
 // CSS STYLES
 import styles from '@/src/styles/DashboardPage/DashboardPage.module.css'
 
@@ -9,6 +13,12 @@ const NewProjectDisplay = () => {
         title: '',
         description: '',
     })
+
+
+    const {
+        signedInUser,
+        setDashboardDisplay,
+    } = useDashboardContext()
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +32,38 @@ const NewProjectDisplay = () => {
         })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+
+        if (!signedInUser.id) {
+            return
+        }
+
+        console.log('signedInUser', signedInUser)
+
+        const projectData = {
+            ...newProject,
+            user_id: signedInUser.id,
+            tabs: []
+        }
+
+        await fetch(`api/projects/create`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(projectData),
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log('newwwwwwwwwwww',data)
+            if (data.title) {
+                toast.success('Project Created')
+                setNewProject({
+                    title: '',
+                    description: '',
+                })
+                setDashboardDisplay('all-projects')
+            }
+        })
+
 
     }
 
