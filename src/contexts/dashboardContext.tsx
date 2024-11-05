@@ -8,6 +8,8 @@ type ContextValues = {
     setDashboardDisplay: React.Dispatch<React.SetStateAction<string>>;
     signedInUser:dbUserData;
     setSignedInUser: React.Dispatch<React.SetStateAction<dbUserData>>;
+    userProjects:any[];
+    setUserProjects: React.Dispatch<React.SetStateAction<any[]>>;
 } | undefined
 
 
@@ -25,6 +27,7 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         lastName: '',
         email: '',
     })
+    const [userProjects, setUserProjects] = useState<any[]>([])
 
 
     useEffect(() => {
@@ -48,6 +51,24 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
                 lastName: data.lastName,
                 email: data.email,
             })
+
+
+            getAllProjects(data.id)
+        })
+    }
+
+
+
+    const getAllProjects = async (user_id: string) => {
+
+        await fetch(`api/projects/getAllProjects/${user_id}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log('all projects', data)
+            setUserProjects(data)
+
         })
     }
 
@@ -57,6 +78,8 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         setDashboardDisplay,
         signedInUser,
         setSignedInUser,
+        userProjects,
+        setUserProjects,
     }
 
     return (

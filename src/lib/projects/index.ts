@@ -30,3 +30,23 @@ export const createNewProject = async (projectData: ProjectDataType) => {
     }
 }
 
+
+
+
+export const getAllProjects = async (user_id: string) => {
+    try {
+        console.log('allProjects user_id', user_id)
+        const allProjects = await prisma.projects.findMany({
+            where: {
+                user_id: user_id,
+            }
+        });
+        console.log('allProjects', allProjects)
+
+
+        return allProjects
+    } catch (error) {
+        console.log("getAllProjects FUNCTION ERROR IN lib/projects", error)
+        return error
+    }
+}

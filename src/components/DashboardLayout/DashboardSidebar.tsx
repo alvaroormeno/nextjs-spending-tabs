@@ -16,6 +16,7 @@ const DashboardSidebar = () => {
     const {
         dashboardDisplay,
         setDashboardDisplay,
+        userProjects,
     } = useDashboardContext()
 
 
@@ -38,12 +39,25 @@ const DashboardSidebar = () => {
 
     return (
         <div className={styles.sidebar_main_container}>
-            <p>THIS IS THE SIDE BAR</p>
+
+            <p>Spending Tabs</p>
+            <p>Projects</p>
+
+            {
+                userProjects.map((project, index) => {
+                    return (
+                        <div key={index}>
+                            <p>{project.title}</p>
+                        </div>
+                    )
+                })
+            }
 
             <div 
                 onClick={() => {handleCreateProject()}}
+                className={styles.new_project_btn}
             >
-                Create Project
+                New Project +
             </div>
         </div>
     )

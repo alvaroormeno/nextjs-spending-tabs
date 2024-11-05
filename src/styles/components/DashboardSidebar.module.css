@@ -14,5 +14,13 @@
         border-width: 2px;
         border-color: var(--primary-color);
 
-        background-color: var(--light-green);
+        background-color: var(--primary-color);
+    }
+
+
+
+
+
+    .new_project_btn {
+
     }

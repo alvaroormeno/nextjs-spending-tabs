@@ -1,5 +1,9 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { 
     // SignInButton, 
     SignedIn, 
@@ -11,7 +15,11 @@ import {
 import styles from '@/src/styles/components/Navbar.module.css'
 
 const Navbar = () => {
-    return (
+
+    const pathname = usePathname()
+
+    console.log('pathname:', pathname)
+    return pathname && !pathname.includes('/dashboard') ? (
         <div className={styles.navbar_main_wrapper}>
             <div className={styles.navbar_main_container}>
                 {/* Logo */}
@@ -41,7 +49,7 @@ const Navbar = () => {
                 
             </div>
         </div>
-    )
+    ) : (null)
 }
 
 export default Navbar

@@ -24,11 +24,11 @@ const DashboardPage = () => {
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        
 
-    }, dashboardDisplay)
+
+    // }, dashboardDisplay)
 
     return (
         
