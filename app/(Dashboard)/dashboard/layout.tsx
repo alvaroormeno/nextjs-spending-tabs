@@ -1,5 +1,7 @@
 import React from 'react'
 
+// CONTEXTS
+import { DashboardProvider } from '@/src/contexts/dashboardContext'
 // CSS STYLES
 import styles from '@/src/styles/Layouts/DashboardLayout.module.css'
 // COMPONENTS
@@ -12,21 +14,20 @@ export default function DashboardLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className={styles.dashboardLayout_main_wrapper} >
-            <div className={styles.dashboardLayout_main_container} >
-                {/* SIDE BAR */}
-                <div >
-                    <DashboardSidebar />
-                </div>  
-
-                <main className={styles.dashboardLayout_mainSection_container}>
-                    <DashboardHeader />
-                    {children}
-                </main>
+        <DashboardProvider>
+            <div className={styles.dashboardLayout_main_wrapper} >
+                <div className={styles.dashboardLayout_main_container} >
+                    {/* SIDE BAR */}
+                    <div >
+                        <DashboardSidebar />
+                    </div>  
+                    {/* MAIN SECTION */}
+                    <main className={styles.dashboardLayout_mainSection_container}>
+                        <DashboardHeader />
+                        {children}
+                    </main>
+                </div>
             </div>
-
-            
-
-        </div>
+        </DashboardProvider>
     );
 }
