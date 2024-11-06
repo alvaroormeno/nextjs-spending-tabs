@@ -57,7 +57,7 @@ const DashboardSidebar = () => {
                     return (
                         <div 
                             key={index} 
-                            className={styles.single_project_container}
+                            className={selectedProject.id === project.id ? styles.selected_single_project_container : styles.single_project_container}
                             onClick={() => {handleSelectProject(project)}}
                         >
                             <p>{project.title}</p>

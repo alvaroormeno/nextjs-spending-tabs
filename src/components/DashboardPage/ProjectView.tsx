@@ -17,17 +17,17 @@ const ProjectView = () => {
         setSelectedProject,
     } = useDashboardContext()
 
-
+    console.log('PROJECT-VIEW projectData', projectData)
 
     useEffect(() => {
 
-        if (dashboardDisplay.includes('project-view')) {
+        if (dashboardDisplay === 'project-view') {
             const project_id = selectedProject.id
             // FETCH PROJECT DATA
             getProjectData(project_id)
         }
         
-    }, [dashboardDisplay])
+    }, [dashboardDisplay, selectedProject])
 
 
     const getProjectData = async (project_id: string) => {
