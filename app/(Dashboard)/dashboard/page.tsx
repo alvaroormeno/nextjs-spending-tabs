@@ -9,6 +9,7 @@ import styles from '@/src/styles/DashboardPage/DashboardPage.module.css'
 // COMPONENTS
 import NewProjectDisplay from '@/src/components/DashboardPage/NewProjectDisplay'
 import ProjectView from '@/src/components/DashboardPage/ProjectView'
+import NewTabDisplay from '@/src/components/DashboardPage/NewTabDisplay'
 
 
 const DashboardPage = () => {
@@ -40,7 +41,7 @@ const DashboardPage = () => {
                 ) : dashboardDisplay === 'project-view' ? (
                     <ProjectView />
                 ) : dashboardDisplay === 'create-project-tab' ? (
-                    <div></div>
+                    <NewTabDisplay />
                 ) : (null)
             }
 
