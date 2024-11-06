@@ -168,3 +168,36 @@
 
     background-color: white;
 }
+
+
+.first_transaction_text {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.create_tab_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px;
+    gap: 4px;
+
+    width: 141px;
+    height: 40px;
+
+    background: var(--light-green);
+
+    border-radius: 16px;
+    border: none;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--primary-color);
+    cursor: pointer;
+}

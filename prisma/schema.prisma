@@ -43,7 +43,16 @@ model projects {
 model tabs {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   project_id String?    @db.ObjectId
-  user_id   String?    @db.ObjectId
   title    String
   project   projects?      @relation(fields: [project_id], references: [id])
+  transactions  transactions[]
+}
+
+
+model transactions {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  tab_id String    @db.ObjectId
+  name   String
+  amount    Int
+  tab   tabs?      @relation(fields: [tab_id], references: [id])
 }

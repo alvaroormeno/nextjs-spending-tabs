@@ -13,6 +13,8 @@ type ContextValues = {
     setUserProjects: React.Dispatch<React.SetStateAction<any[]>>;
     selectedProject:any;
     setSelectedProject: React.Dispatch<React.SetStateAction<any>>;
+    selectedTab:any;
+    setSelectedTab: React.Dispatch<React.SetStateAction<any>>;
     // FUNCTIONS
     getAllProjects: Function;
 } | undefined
@@ -34,6 +36,7 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
     })
     const [userProjects, setUserProjects] = useState<any[]>([])
     const [selectedProject, setSelectedProject] = useState<any>(null)
+    const [selectedTab, setSelectedTab] = useState<any>(null)
 
 
     useEffect(() => {
@@ -89,6 +92,8 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         setUserProjects,
         selectedProject,
         setSelectedProject,
+        selectedTab,
+        setSelectedTab,
         // FUNCTIONS
         getAllProjects,
     }
