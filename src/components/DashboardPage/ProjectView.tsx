@@ -4,6 +4,8 @@ import React, { useEffect } from 'react'
 import { useDashboardContext } from '@/src/contexts/dashboardContext'
 // CSS STYLES
 import styles from '@/src/styles/DashboardPage/DashboardPage.module.css'
+// COMPONENTS
+import TabWrapper from '../TabComponents/TabWrapper'
 
 const ProjectView = () => {
 
@@ -50,6 +52,19 @@ const ProjectView = () => {
     }
 
 
+    const formatDate = (isoString: string): string => {
+        const date = new Date(isoString);
+        return date.toLocaleDateString("en-US", {
+            year: "2-digit",
+            month: "numeric",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true, // Ensures AM/PM format
+        });
+    };
+
+
 
     return (
         <div className={styles.projectView_main_container}>
@@ -57,13 +72,40 @@ const ProjectView = () => {
             <div className={styles.projectView_header_container}>
                 <p>{projectData?.title}</p>
                 <p>{projectData?.description}</p>
+                <p># of Tabs: {projectData?.tabs.length} </p>
             </div>
 
             {
                 projectData && projectData.tabs && projectData.tabs.length > 0 ? (
-                    <div>
-
+                    <>
+                    <div className={styles.projectView_all_tabs_container}>
+                        {
+                            projectData.tabs.map((tab: any, index: number) => {
+                                return (
+                                    <div key={index} className={styles.single_tab_quick_view_container}>
+                                        <p>{tab.title}</p>
+                                        <p>Created: {formatDate(tab.created_at)}</p>
+                                        <p>Last Modified {formatDate(tab.updated_at)}</p>
+                                        <p>Balance</p>
+                                    </div>
+                                )
+                            })
+                        }
+                        
                     </div>
+
+                    <div 
+                        onClick={() => {handleCreateTab()}}
+                        className={styles.new_tab_btn}
+                    >
+                        New Tab +
+                    </div>
+                    </>
+
+                    
+
+
+
                 ) : (
                     <div className={styles.projectView_no_tabs_container}>
                         <p>This Project has no tabs yet. Create one!</p>

@@ -9,7 +9,10 @@ import TabName from './TabName'
 
 
 
-const TabWrapper = () => {
+const TabWrapper = ({tabData}) => {
+
+    
+
     return (
         <div className={styles.main_tab_wrapper}>
             <TabName/>

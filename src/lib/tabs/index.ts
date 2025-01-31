@@ -12,9 +12,11 @@ export const createNewTab = async (newtabData: any) => {
         const newTab = await prisma.tabs.create({
             data: {
                 title: newtabData.title,
-                project_id: newtabData.description,
+                project_id: newtabData.project_id,
             }
         });
+
+        console.log('createNewTab newTab', newTab)
 
         if (newTab) {
 

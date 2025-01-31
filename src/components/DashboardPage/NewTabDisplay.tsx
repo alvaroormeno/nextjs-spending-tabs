@@ -59,7 +59,7 @@ const NewTabDisplay = () => {
         await fetch(`api/tabs/create`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newTab),
+            body: JSON.stringify(newTabData),
         })
         .then(response => response.json())
         .then((data) => {

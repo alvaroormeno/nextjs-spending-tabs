@@ -44,6 +44,9 @@ model tabs {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   project_id String?    @db.ObjectId
   title    String
+
+  created_at  DateTime  @default(now())    
+  updated_at  DateTime  @updatedAt         
   project   projects?      @relation(fields: [project_id], references: [id])
   transactions  transactions[]
 }

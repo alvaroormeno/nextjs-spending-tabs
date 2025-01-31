@@ -25,7 +25,7 @@ const DashboardSidebar = () => {
 
 
     // const users = await getUsers()
-    // console.log(users)
+    console.log('userProjects`', userProjects)
 
 
     const handleCreateProject = async () => {

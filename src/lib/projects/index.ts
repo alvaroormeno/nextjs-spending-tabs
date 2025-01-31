@@ -59,7 +59,10 @@ export const getProjectData = async (project_id: string) => {
         const response = await prisma.projects.findFirst({
             where: {
                 id: project_id,
-            }
+            },
+            include: {
+                tabs: true, 
+            },
         });
         console.log('response', response)
 
