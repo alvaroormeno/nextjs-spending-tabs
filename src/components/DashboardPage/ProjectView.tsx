@@ -85,8 +85,8 @@ const ProjectView = () => {
                                     <div key={index} className={styles.single_tab_quick_view_container}>
                                         <p>{tab.title}</p>
                                         <p>Created: {formatDate(tab.created_at)}</p>
-                                        <p>Last Modified {formatDate(tab.updated_at)}</p>
-                                        <p>Balance</p>
+                                        <p>Last Modified: {formatDate(tab.updated_at)}</p>
+                                        <p>Balance: </p>
                                     </div>
                                 )
                             })

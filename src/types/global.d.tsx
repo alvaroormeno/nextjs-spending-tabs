@@ -14,6 +14,18 @@ declare global {
         projects?: [];
     }
 
+
+    type projectDataType = {
+        title: string,
+        description: string,
+        user_id: string,
+        tabs: any,
+        created_at?: string,
+        updated_at?: string,
+    }
+
+
+
     // type Manufacturer = {
     //     manufacturer_id: number,
     //     name: string,

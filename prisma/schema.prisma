@@ -35,6 +35,9 @@ model projects {
   title    String
   description    String
   user_id   String?    @db.ObjectId
+
+  created_at  DateTime?  @default(now())    
+  updated_at  DateTime?  @updatedAt      
   user   user?      @relation(fields: [user_id], references: [id])
   tabs  tabs[]
 }

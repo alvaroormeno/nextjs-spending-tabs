@@ -10,6 +10,7 @@ import styles from '@/src/styles/DashboardPage/DashboardPage.module.css'
 import NewProjectDisplay from '@/src/components/DashboardPage/NewProjectDisplay'
 import ProjectView from '@/src/components/DashboardPage/ProjectView'
 import NewTabDisplay from '@/src/components/DashboardPage/NewTabDisplay'
+import AllProjectsView from '@/src/components/DashboardPage/AllProjectsView'
 
 
 const DashboardPage = () => {
@@ -38,10 +39,16 @@ const DashboardPage = () => {
             {
                 dashboardDisplay === 'new-project' ? (
                     <NewProjectDisplay />
+
                 ) : dashboardDisplay === 'project-view' ? (
                     <ProjectView />
+
                 ) : dashboardDisplay === 'create-project-tab' ? (
                     <NewTabDisplay />
+
+                ) :  dashboardDisplay === 'all-projects' ? (
+                    <AllProjectsView />
+                    
                 ) : (null)
             }
 

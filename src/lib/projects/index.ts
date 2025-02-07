@@ -1,13 +1,15 @@
 import prisma from '@/src/utils/Prisma/prisma';
 
-type ProjectDataType = {
-    title: string,
-    description: string,
-    user_id: string,
-    tabs: any
-}
+// type ProjectDataType = {
+//     title: string,
+//     description: string,
+//     user_id: string,
+//     tabs: any,
+//     created_at: string,
+//     updated_at: string,
+// }
 
-export const createNewProject = async (projectData: ProjectDataType) => {
+export const createNewProject = async (projectData: projectDataType) => {
 
     
     try {
@@ -37,8 +39,14 @@ export const getAllProjects = async (user_id: string) => {
     try {
         console.log('allProjects user_id', user_id)
         const allProjects = await prisma.projects.findMany({
+            orderBy: {
+                created_at: 'desc',
+            },
             where: {
                 user_id: user_id,
+            },
+            include: {
+                tabs: true,
             }
         });
         console.log('allProjects', allProjects)
