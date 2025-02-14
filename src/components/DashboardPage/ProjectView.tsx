@@ -17,6 +17,7 @@ const ProjectView = () => {
         userProjects,
         selectedProject,
         setSelectedProject,
+        setSelectedTab,
     } = useDashboardContext()
 
     console.log('PROJECT-VIEW projectData', projectData)
@@ -66,6 +67,14 @@ const ProjectView = () => {
 
 
 
+    const handleSelectSingleTab = (tab: any) => {
+        console.log('handleSelectSingleTab tab', tab)
+        setSelectedTab(tab)
+        setDashboardDisplay('single-tab-view')
+    }
+
+
+
     return (
         <div className={styles.projectView_main_container}>
 
@@ -82,7 +91,11 @@ const ProjectView = () => {
                         {
                             projectData.tabs.map((tab: any, index: number) => {
                                 return (
-                                    <div key={index} className={styles.single_tab_quick_view_container}>
+                                    <div 
+                                        key={index} 
+                                        className={styles.single_tab_quick_view_container}
+                                        onClick={() => {handleSelectSingleTab(tab)}}
+                                    >
                                         <p>{tab.title}</p>
                                         <p>Created: {formatDate(tab.created_at)}</p>
                                         <p>Last Modified: {formatDate(tab.updated_at)}</p>

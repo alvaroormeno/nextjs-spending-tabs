@@ -14,7 +14,6 @@ declare global {
         projects?: [];
     }
 
-
     type projectDataType = {
         title: string,
         description: string,
@@ -22,6 +21,14 @@ declare global {
         tabs: any,
         created_at?: string,
         updated_at?: string,
+    }
+
+
+    type transactionDataType = {
+        id: string,
+        tab_id: string,
+        name: string,
+        amount: number,
     }
 
 

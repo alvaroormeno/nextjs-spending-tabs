@@ -39,19 +39,21 @@ export const getAllProjects = async (user_id: string) => {
     try {
         console.log('allProjects user_id', user_id)
         const allProjects = await prisma.projects.findMany({
-            orderBy: {
-                created_at: 'desc',
-            },
+            // orderBy: {
+            //     created_at: 'desc',
+            // },
             where: {
                 user_id: user_id,
             },
             include: {
-                tabs: true,
+                tabs: {
+                    include: {
+                        transactions: true,
+                    }
+                },
+                
             }
         });
-        console.log('allProjects', allProjects)
-
-
         return allProjects
     } catch (error) {
         console.log("getAllProjects FUNCTION ERROR IN lib/projects", error)
@@ -62,19 +64,18 @@ export const getAllProjects = async (user_id: string) => {
 
 export const getProjectData = async (project_id: string) => {
     try {
-        console.log('getProjectData project_id', project_id)
-
         const response = await prisma.projects.findFirst({
             where: {
                 id: project_id,
             },
             include: {
-                tabs: true, 
+                tabs: {
+                    include: {
+                        transactions: true,
+                    }
+                },
             },
         });
-        console.log('response', response)
-
-
         return response
     } catch (error) {
         console.log("getAllProjects FUNCTION ERROR IN lib/projects", error)

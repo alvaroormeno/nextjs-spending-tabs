@@ -11,6 +11,7 @@ import NewProjectDisplay from '@/src/components/DashboardPage/NewProjectDisplay'
 import ProjectView from '@/src/components/DashboardPage/ProjectView'
 import NewTabDisplay from '@/src/components/DashboardPage/NewTabDisplay'
 import AllProjectsView from '@/src/components/DashboardPage/AllProjectsView'
+import SingleTabView from '@/src/components/DashboardPage/SingleTabView'
 
 
 const DashboardPage = () => {
@@ -48,6 +49,9 @@ const DashboardPage = () => {
 
                 ) :  dashboardDisplay === 'all-projects' ? (
                     <AllProjectsView />
+                    
+                ) :  dashboardDisplay === 'single-tab-view' ? (
+                    <SingleTabView />
                     
                 ) : (null)
             }

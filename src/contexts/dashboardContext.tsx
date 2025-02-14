@@ -17,6 +17,7 @@ type ContextValues = {
     setSelectedTab: React.Dispatch<React.SetStateAction<any>>;
     // FUNCTIONS
     getAllProjects: Function;
+    getTabData: Function;
 } | undefined
 
 
@@ -43,7 +44,11 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         if (!signedInUser.id) {
             handleCheckUser()
         }
-    }, [])
+    }, [signedInUser])
+
+
+
+    // API CALLS
 
 
     const handleCheckUser = async () => {
@@ -75,11 +80,31 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         })
         .then(response => response.json())
         .then((data) => {
-            console.log('all projects', data)
+            console.log('allprojectsssss', data)
             setUserProjects(data)
 
         })
     }
+
+
+
+    const getTabData = async (tab_id: string) => {
+
+        await fetch(`api/tabs/getTabData/${tab_id}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log('getTabData', data)
+            setSelectedTab(data)
+
+        })
+    }
+
+
+
+
+    
 
 
     const values: ContextValues | undefined = {
@@ -96,6 +121,7 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
         setSelectedTab,
         // FUNCTIONS
         getAllProjects,
+        getTabData,
     }
 
     return (

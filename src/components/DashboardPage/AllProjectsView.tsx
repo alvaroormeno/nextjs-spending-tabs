@@ -29,7 +29,7 @@ const AllProjectsView = () => {
 
 
     const handleSelectProject = (project: any) => {
-        console.log('project', project)
+        console.log('handleSelectProject project', project)
         setDashboardDisplay(`project-view`)
         setSelectedProject(project)
     

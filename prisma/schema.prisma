@@ -59,6 +59,6 @@ model transactions {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   tab_id String    @db.ObjectId
   name   String
-  amount    Int
+  amount    Float
   tab   tabs?      @relation(fields: [tab_id], references: [id])
 }
